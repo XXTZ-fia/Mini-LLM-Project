@@ -1,5 +1,8 @@
 # LLM 学习项目记录 📚
 
+设备：RTX 4090(24GB) | 16 vCPU Intel(R) Xeon(R) Gold 6430
+环境：PyTorch  2.1.0 | Python  3.10.8(ubuntu22.04) | CUDA  12.1
+
 | 序号 | 项目名称 | 完成状态 | 完成程度 | 备注 |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | LLaMa 微调对话总结 | ✅ 已完成 | 100% | 使用QLoRA对LLaMa进行微调对话
