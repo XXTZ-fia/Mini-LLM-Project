@@ -1,0 +1,5 @@
+transformers==4.45.2 
+peft==0.13.1
+accelerate==1.0.0
+tiktoken==0.8.0
+bitsandbytes==0.44.1
