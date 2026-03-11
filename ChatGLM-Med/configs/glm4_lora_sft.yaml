@@ -1,0 +1,42 @@
+### model
+model_name_or_path: ZhipuAI/glm-4-9b-chat   # modelscope 源的模型名
+quantization_bit: 8                           # 8bit 量化，节省显存
+quantization_method: bitsandbytes
+trust_remote_code: true
+
+### method
+stage: sft          # 监督微调阶段
+do_train: true
+finetuning_type: lora
+lora_target: all    # 对所有线性层应用 LoRA
+
+### dataset
+dataset: huatuo                    # 对应 dataset_info.json 中注册的名字
+template: glm4                     # ChatGLM4 的对话模板
+cutoff_len: 1024                   # 最大序列长度
+max_samples: 10000                 # 最多使用 1 万条训练数据
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /root/autodl-tmp/ChatGLM-Med/checkpoints/huatuo-glm-qlora
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8    # 等效 batch_size = 1*8 = 8
+learning_rate: 1.0e-4
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true                        # 需要 3090/4090 等支持 bf16 的显卡
+ddp_timeout: 180000000
+
+### eval
+val_size: 0.1                     # 10% 数据作为验证集
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500

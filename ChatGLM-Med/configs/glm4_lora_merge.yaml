@@ -1,0 +1,14 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: ZhipuAI/glm-4-9b-chat
+adapter_name_or_path: /root/autodl-tmp/ChatGLM-Med/checkpoints/huatuo-glm-qlora
+template: glm4
+finetuning_type: lora
+trust_remote_code: true
+
+### export
+export_dir: /root/autodl-tmp/ChatGLM-Med/checkpoints/huatuo-glm-qlora-merge
+export_size: 2        # 每个分片最大 2GB
+export_device: cpu    # 合并在 CPU 上进行，节省显存
+export_legacy_format: false

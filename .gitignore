@@ -7,3 +7,9 @@ LLM-Research/
 .lock
 flash_attn-2.7.3+cu11torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 Qwen2.5-3B-Instruct/
+LLaMA-Factory/
+huatuo-encyclopedia-qa/
+huatuo-encyclopedia-qa-alpaca/
+med/
+checkpoints/
+.cache/
